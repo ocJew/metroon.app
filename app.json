@@ -4,24 +4,42 @@
     "slug": "Metroon",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/img/icon3.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/img/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#1A2940"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Este aplicativo usa sua localização para mostrar recursos específicos do site."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/img/adaptive-icon.png",
+        "backgroundColor": "#1A2940"
+      },
+      "permissions": ["ACCESS_FINE_LOCATION"],
+      "package": "com.ruanggd123.Metroon"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "724454a8-c15c-4939-bf40-6c006d4e8c55"
+      }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ]
   }
 }
