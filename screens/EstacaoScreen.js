@@ -1,36 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator, Text } from 'react-native';
-import * as Location from 'expo-location';
+import React from 'react';
+import { View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-const App = () => {
-    const [hasLocationPermission, setHasLocationPermission] = useState(null);
-
-    useEffect(() => {
-        (async () => {
-        let { status } = await Location.requestForegroundPermissionsAsync();
-        if (status !== 'granted') {
-            setHasLocationPermission(false);
-            return;
-        }
-        setHasLocationPermission(true);
-        })();
-    }, []);
-
-    if (hasLocationPermission === null) {
-        return(
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <ActivityIndicator size="large" />
-            </View>
-        );
-    }
-
-    if (hasLocationPermission === false) {
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>...</Text>
-        </View>
-    }
-
+const EstacaoScreen = () => {
     return (
         <View style={{ flex: 1 }}>
             <WebView source={{ uri: `https://ocjew.github.io/mapa-metroon/` }} />
@@ -38,4 +10,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default EstacaoScreen;
